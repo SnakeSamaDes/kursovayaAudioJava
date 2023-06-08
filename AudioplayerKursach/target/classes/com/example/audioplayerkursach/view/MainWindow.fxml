@@ -121,7 +121,7 @@
                 <Insets bottom="10.0" />
             </padding>
         </Separator>
-        <AreaChart fx:id="spektrum" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" prefHeight="270.0" prefWidth="418.0" style="-fx-background-radius: 50; -fx-background-color: #00ddee;" styleClass="bar-chart" verticalGridLinesVisible="false" verticalZeroLineVisible="false" GridPane.columnIndex="1" GridPane.columnSpan="7" GridPane.rowIndex="7">
+        <AreaChart fx:id="spektr" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" prefHeight="270.0" prefWidth="418.0" style="-fx-background-radius: 50; -fx-background-color: #00ddee;" styleClass="bar-chart" verticalGridLinesVisible="false" verticalZeroLineVisible="false" GridPane.columnIndex="1" GridPane.columnSpan="7" GridPane.rowIndex="7">
             <xAxis>
                 <CategoryAxis animated="false" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" visible="false" />
             </xAxis>
