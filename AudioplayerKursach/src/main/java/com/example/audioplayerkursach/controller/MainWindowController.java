@@ -26,6 +26,12 @@ import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class MainWindowController{
+
+
+    private MediaPlayer mediaplayer;
+    private double volume;
+
+
     @FXML
     private Slider timeSlider;
     @FXML
@@ -38,22 +44,57 @@ public class MainWindowController{
     private AreaChart<String, Number> spektrum;
     @FXML
     private void openfile(ActionEvent actionEvent) {
-    }
+        try {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.getExtensionFilters()
+                    .add(new FileChooser.ExtensionFilter("MP3, WAV", "*.mp3", "*.wav"));
+            try {
+                File file = fileChooser.showOpenDialog(null);
+                Media media = new Media(file.toURI().toString());
+                if (mediaplayer != null) {
+                    mediaplayer.dispose();
+                }
+                mediaplayer = new MediaPlayer(media);
+            } catch (NullPointerException nullPointerException) {
+                nullPointerException.printStackTrace();
+            }}}
     @FXML
     private void playClick(ActionEvent actionEvent) {
+        try {
+            mediaplayer.play();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
     @FXML
     private void stopClick(ActionEvent actionEvent) {
+        try {
+            mediaplayer.stop();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
     @FXML
     private void pauseClick(ActionEvent actionEvent) {
+        try {
+            mediaplayer.pause();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
     @FXML
     private void closeApplication(ActionEvent actionEvent) {
+        mediaplayer = null;
+        Platform.exit();
     }
     @FXML
     private void refreshClick(ActionEvent actionEvent) {
+        if(mediaplayer!=null){
+            mediaplayer.dispose();
+        }
     }
 
 
+    
 }
