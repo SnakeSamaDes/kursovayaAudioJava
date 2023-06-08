@@ -1,11 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.audioplayerkursach.controller.MainWindowController">
+<GridPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="531.0" prefWidth="671.0" style="-fx-background-color: #00eeee;" styleClass="background" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.adpl.controller.MainWindowController">
+    <columnConstraints>
+        <ColumnConstraints />
+        <ColumnConstraints hgrow="NEVER" minWidth="-Infinity" prefWidth="100.0" />
+        <ColumnConstraints hgrow="NEVER" minWidth="-Infinity" prefWidth="100.0" />
+        <ColumnConstraints hgrow="ALWAYS" minWidth="-Infinity" prefWidth="295.0" />
+        <ColumnConstraints hgrow="NEVER" minWidth="-Infinity" prefWidth="7.0" />
+        <ColumnConstraints hgrow="NEVER" maxWidth="56.799999999999955" minWidth="-Infinity" prefWidth="9.399999999999977" />
+        <ColumnConstraints hgrow="NEVER" maxWidth="47.39999999999998" minWidth="-Infinity" prefWidth="47.39999999999998" />
+        <ColumnConstraints hgrow="NEVER" maxWidth="25.0" minWidth="-Infinity" prefWidth="100.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="25.0" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+        <RowConstraints maxHeight="25.0" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="NEVER" />
+        <RowConstraints maxHeight="13.0" minHeight="-Infinity" prefHeight="7.0" vgrow="NEVER" />
+        <RowConstraints maxHeight="25.0" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+        <RowConstraints maxHeight="7.0" minHeight="5.0" prefHeight="6.0" vgrow="ALWAYS" />
+        <RowConstraints vgrow="NEVER" />
+        <RowConstraints maxHeight="400.0" minHeight="400.0" prefHeight="400.0" vgrow="NEVER" />
+        <RowConstraints minHeight="-Infinity" />
+        <RowConstraints minHeight="-Infinity" prefHeight="0.0" vgrow="NEVER" />
+        <RowConstraints minHeight="-Infinity" prefHeight="0.0" vgrow="NEVER" />
+    </rowConstraints>
+    <children>
+        <MenuBar blendMode="SRC_ATOP" style="-fx-background-color: #00ddee; -fx-background-radius: 50;" GridPane.columnIndex="1" GridPane.rowSpan="2" GridPane.valignment="TOP">
+            <menus>
+                <Menu mnemonicParsing="false" text="Menu">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#openfile" text="Open file" />
+                        <MenuItem mnemonicParsing="false" onAction="#closeApplication" text="Exit file" />
+                    </items>
+                </Menu>
+            </menus>
+            <GridPane.margin>
+                <Insets left="3.0" right="3.0" />
+            </GridPane.margin>
+        </MenuBar>
+        <Label text="Song name" GridPane.columnIndex="2">
+            <GridPane.margin>
+                <Insets left="10.0" />
+            </GridPane.margin>
+            <font>
+                <Font name="Comic Sans MS" size="12.0" />
+            </font>
+        </Label>
+        <Label text="Artist name" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <GridPane.margin>
+                <Insets left="10.0" />
+            </GridPane.margin>
+            <font>
+                <Font name="JetBrains Mono ExtraBold Italic" size="12.0" />
+            </font>
+        </Label>
+        <Slider fx:id="timeSlider" maxWidth="580.0" minWidth="560.0" prefHeight="14.0" prefWidth="579.0" showTickLabels="true" showTickMarks="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding></Slider>
+        <Slider fx:id="volumeSlider" blockIncrement="0.001" max="1.0" orientation="VERTICAL" value="0.5" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowSpan="5">
+            <GridPane.margin>
+                <Insets bottom="-5.0" top="5.0" />
+            </GridPane.margin>
+        </Slider>
+        <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowSpan="6" />
+        <Label fx:id="labelTitle" text="-" GridPane.columnIndex="3">
+            <font>
+                <Font name="Comic Sans MS Italic" size="12.0" />
+            </font></Label>
+        <Label fx:id="labelArtist" text="-" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <font>
+                <Font name="JetBrains Mono ExtraBold Italic" size="12.0" />
+            </font></Label>
 
-</VBox>
+
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="4">
+            <children>
+                <Button fx:id="stopButton" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#stopClick" style="-fx-background-color: #00ddee;" text="stop">
+                    <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                    </HBox.margin>
+                    <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                    </font></Button>
+                <Button fx:id="pauseButton" maxWidth="40.0" minHeight="25.0" minWidth="60.0" mnemonicParsing="false" onAction="#pauseClick" style="-fx-background-color: #00ddee;" text="pause">
+                    <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                    </HBox.margin>
+                    <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                    </font></Button>
+                <Button fx:id="playButton" minHeight="25.0" minWidth="40.0" mnemonicParsing="false" onAction="#playClick" style="-fx-background-color: #00ddee;" text="play">
+                    <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                    </HBox.margin>
+                    <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                    </font></Button>
+                <Button fx:id="refreshButton" minHeight="25.0" minWidth="50.0" mnemonicParsing="false" onAction="#refreshClick" prefHeight="25.0" style="-fx-background-color: #00ddee;" text="clear">
+                    <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                    </HBox.margin>
+                    <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                    </font></Button>
+            </children>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+        </HBox>
+        <Separator prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="6">
+            <padding>
+                <Insets bottom="10.0" />
+            </padding>
+        </Separator>
+        <AreaChart fx:id="spektrum" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" prefHeight="270.0" prefWidth="418.0" style="-fx-background-radius: 50; -fx-background-color: #00ddee;" styleClass="bar-chart" verticalGridLinesVisible="false" verticalZeroLineVisible="false" GridPane.columnIndex="1" GridPane.columnSpan="7" GridPane.rowIndex="7">
+            <xAxis>
+                <CategoryAxis animated="false" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" visible="false" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis animated="false" autoRanging="false" minorTickVisible="false" side="LEFT" tickLabelsVisible="false" tickMarkVisible="false" upperBound="55.0" visible="false" />
+            </yAxis>
+            <effect>
+                <GaussianBlur radius="2.5" />
+            </effect>
+        </AreaChart>
+    </children>
+</GridPane>
