@@ -78,8 +78,8 @@ public class MainWindowController implements Initializable {
                 nullPointerException.printStackTrace();
             }
 
-        }catch (Exception e){
-            e.printStackTrace();
+        }catch (Exception exception){
+            exception.printStackTrace();
         }
     }
     private void setMediaplayer(MediaPlayer mediaplayer){
@@ -94,8 +94,8 @@ public class MainWindowController implements Initializable {
                     timeSlider.setMin(0);
                     timeSlider.setMax(mediaplayer.getMedia().getDuration().toSeconds());
                     timeSlider.setValue(0);
-                }catch (Exception e){
-                    e.printStackTrace();
+                }catch (Exception exception){
+                    exception.printStackTrace();
                 }
 
             });
@@ -139,24 +139,24 @@ public class MainWindowController implements Initializable {
         try {
             mediaplayer.play();
             mediaplayer.setAudioSpectrumInterval(INTERVAL);
-        }catch (Exception e){
-            e.printStackTrace();
+        }catch (Exception exception){
+            exception.printStackTrace();
         }
     }
     @FXML
     private void stopClick(ActionEvent actionEvent) {
         try {
             mediaplayer.stop();
-        }catch (Exception e){
-            e.printStackTrace();
+        }catch (Exception exception){
+            exception.printStackTrace();
         }
     }
     @FXML
     private void pauseClick(ActionEvent actionEvent) {
         try {
             mediaplayer.pause();
-        }catch (Exception e){
-            e.printStackTrace();
+        }catch (Exception exception){
+            exception.printStackTrace();
         }
     }
     @FXML
