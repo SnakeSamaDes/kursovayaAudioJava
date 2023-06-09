@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Slider;
@@ -23,6 +24,7 @@ import javafx.util.Duration;
 import java.io.File;
 import java.net.URL;
 import java.util.Arrays;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class MainWindowController implements Initializable {
@@ -33,7 +35,14 @@ public class MainWindowController implements Initializable {
     private MediaPlayer mediaplayer;
     private double volume;
     private XYChart.Data[] chartData;
-
+    @FXML
+    private Label lblVolume;
+    @FXML
+    private Button playButton;
+    @FXML
+    private Button stopButton;
+    @FXML
+    private Button pauseButton;
     @FXML
     private Slider timeSlider;
     @FXML
@@ -51,14 +60,22 @@ public class MainWindowController implements Initializable {
             fileChooser.getExtensionFilters()
                     .add(new FileChooser.ExtensionFilter("MP3, WAV", "*.mp3","*.wav"));
             try {
+                //
                 File file = fileChooser.showOpenDialog(null);
-                Media media = new Media(file.toURI().toString());
-                if(mediaplayer!=null){
-                    mediaplayer.dispose();
+                if (file == null){
+                }else{
+                    playButton.setDisable(false);
+                    pauseButton.setDisable(false);
+                    stopButton.setDisable(false);
+
+                    Media media = new Media(file.toURI().toString());
+                    if(mediaplayer!=null){
+                        mediaplayer.dispose();
+                    }
+                    mediaplayer = new MediaPlayer(media);
                 }
-                mediaplayer = new MediaPlayer(media);
-            }catch (NullPointerException nullPointerException){
-                nullPointerException.printStackTrace();
+            }catch (Exception e){
+                e.printStackTrace();
             }
             // timeSlider
             mediaplayer.setOnReady(()->{
@@ -105,6 +122,13 @@ public class MainWindowController implements Initializable {
                 if (mediaplayer != null) {
                     mediaplayer.setVolume(volume);
                 }
+            }
+            if (this.volumeSlider.isPressed()) {
+                this.volume = this.volumeSlider.getValue();
+                System.out.println(this.volume);
+                Platform.runLater(() -> {
+                    this.lblVolume.setText(String.format("%01d %%", (int) (this.volume * 100.0)));
+                });
             }
         }catch (Exception e){
             e.printStackTrace();
