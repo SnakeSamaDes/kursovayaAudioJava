@@ -62,21 +62,28 @@ public class MainWindowController implements Initializable {
             try {
                 //
                 File file = fileChooser.showOpenDialog(null);
-                if (file == null){
+                if (file == null) {System.out.println("NULL");
                 }else{
                     playButton.setDisable(false);
                     pauseButton.setDisable(false);
                     stopButton.setDisable(false);
-
                     Media media = new Media(file.toURI().toString());
                     if(mediaplayer!=null){
                         mediaplayer.dispose();
                     }
                     mediaplayer = new MediaPlayer(media);
+                    setMediaplayer(mediaplayer);
                 }
-            }catch (Exception e){
-                e.printStackTrace();
+            }catch (NullPointerException nullPointerException){
+                nullPointerException.printStackTrace();
             }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    private void setMediaplayer(MediaPlayer mediaplayer){
+        try {
             // timeSlider
             mediaplayer.setOnReady(()->{
                 try {
@@ -123,17 +130,10 @@ public class MainWindowController implements Initializable {
                     mediaplayer.setVolume(volume);
                 }
             }
-            if (this.volumeSlider.isPressed()) {
-                this.volume = this.volumeSlider.getValue();
-                System.out.println(this.volume);
-                Platform.runLater(() -> {
-                    this.lblVolume.setText(String.format("%01d %%", (int) (this.volume * 100.0)));
-                });
-            }
-        }catch (Exception e){
-            e.printStackTrace();
+        }catch (Exception exception){
+            exception.printStackTrace();
         }
-    }
+    };
     @FXML
     private void playClick(ActionEvent actionEvent) {
         try {
