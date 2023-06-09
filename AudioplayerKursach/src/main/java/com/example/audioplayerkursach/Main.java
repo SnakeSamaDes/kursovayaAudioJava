@@ -16,8 +16,8 @@ public class Main extends Application {
             stage.setTitle("Audioplayer");
             stage.setScene(scene);
             stage.show();
-        }catch (Exception e){
-            e.printStackTrace();
+        }catch (Exception exception){
+            exception.printStackTrace();
         }
     }
 

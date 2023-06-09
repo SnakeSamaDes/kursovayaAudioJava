@@ -50,7 +50,7 @@
                 <Insets left="10.0" />
             </GridPane.margin>
             <font>
-                <Font name="Comic Sans MS" size="12.0" />
+                <Font name="Comic Sans MS" size="14.0" />
             </font>
         </Label>
         <Label text="Artist name" GridPane.columnIndex="2" GridPane.rowIndex="1">
@@ -58,7 +58,7 @@
                 <Insets left="10.0" />
             </GridPane.margin>
             <font>
-                <Font name="JetBrains Mono ExtraBold Italic" size="12.0" />
+                <Font name="Comic Sans MS Italic" size="14.0" />
             </font>
         </Label>
         <Slider fx:id="timeSlider" maxWidth="580.0" minWidth="560.0" prefHeight="14.0" prefWidth="579.0" showTickLabels="true" showTickMarks="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
@@ -78,7 +78,7 @@
             </font></Label>
         <Label fx:id="labelArtist" text="-" GridPane.columnIndex="3" GridPane.rowIndex="1">
             <font>
-                <Font name="JetBrains Mono ExtraBold Italic" size="12.0" />
+                <Font name="Comic Sans MS Italic" size="12.0" />
             </font></Label>
 
 
