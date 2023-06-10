@@ -77,7 +77,6 @@ public class MainWindowController implements Initializable {
             }catch (NullPointerException nullPointerException){
                 nullPointerException.printStackTrace();
             }
-
         }catch (Exception exception){
             exception.printStackTrace();
         }
@@ -173,13 +172,13 @@ public class MainWindowController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         volume = 1.0;
-        XYChart.Series<String, Number> series1 = new XYChart.Series<>();
+        XYChart.Series<String, Number> dataSeries = new XYChart.Series<>();
         chartData = new XYChart.Data[BANDS+2];
         for (int i = 0; i < chartData.length; i++) {
             chartData[i] = new XYChart.Data<>(Integer.toString(i + 1), 0);
-            series1.getData().add(chartData[i]);
+            dataSeries.getData().add(chartData[i]);
         }
-        spektr.getData().add(series1);
+        spektr.getData().add(dataSeries);
     }
     private float[] createFilledBuffer(int size, float fillValue) {
         float[] floats = new float[size];
