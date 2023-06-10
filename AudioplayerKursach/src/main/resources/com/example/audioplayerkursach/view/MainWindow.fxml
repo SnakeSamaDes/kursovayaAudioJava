@@ -61,7 +61,7 @@
                 <Font name="Comic Sans MS Italic" size="14.0" />
             </font>
         </Label>
-        <Slider fx:id="timeSlider" maxWidth="580.0" minWidth="560.0" prefHeight="14.0" prefWidth="579.0" showTickLabels="true" showTickMarks="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <Slider fx:id="timeSlider" maxWidth="1.7976931348623157E308" minWidth="560.0" prefHeight="14.0" prefWidth="579.0" showTickLabels="true" showTickMarks="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
             <padding>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </padding></Slider>
@@ -84,28 +84,28 @@
 
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="4">
             <children>
-                <Button fx:id="stopButton" disable="true" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#stopClick" style="-fx-background-color: #00ddee;" text="stop">
+                <Button fx:id="stopButton" disable="true" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#stopClick" style="-fx-background-color: #00ddee;" stylesheets="@../../../../style/style.css">
                     <HBox.margin>
                         <Insets left="10.0" right="10.0" />
                     </HBox.margin>
                     <font>
                         <Font name="System Bold Italic" size="12.0" />
                     </font></Button>
-                <Button fx:id="pauseButton" disable="true" maxWidth="40.0" minHeight="25.0" minWidth="60.0" mnemonicParsing="false" onAction="#pauseClick" style="-fx-background-color: #00ddee;" text="pause">
+                <Button fx:id="pauseButton" disable="true" maxWidth="40.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#pauseClick" style="-fx-background-color: #00ddee;" stylesheets="@../../../../style/style.css">
                     <HBox.margin>
                         <Insets left="10.0" right="10.0" />
                     </HBox.margin>
                     <font>
                         <Font name="System Bold Italic" size="12.0" />
                     </font></Button>
-                <Button fx:id="playButton" disable="true" minHeight="25.0" minWidth="40.0" mnemonicParsing="false" onAction="#playClick" style="-fx-background-color: #00ddee;" text="play">
+                <Button fx:id="playButton" disable="true" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#playClick" style="-fx-background-color: #00ddee;" stylesheets="@../../../../style/style.css">
                     <HBox.margin>
                         <Insets left="10.0" right="10.0" />
                     </HBox.margin>
                     <font>
                         <Font name="System Bold Italic" size="12.0" />
                     </font></Button>
-                <Button fx:id="refreshButton" minHeight="25.0" minWidth="50.0" mnemonicParsing="false" onAction="#refreshClick" prefHeight="25.0" style="-fx-background-color: #00ddee;" text="clear">
+                <Button fx:id="refreshButton" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#refreshClick" prefHeight="25.0" style="-fx-background-color: #00ddee;" stylesheets="@../../../../style/style.css">
                     <HBox.margin>
                         <Insets left="10.0" right="10.0" />
                     </HBox.margin>
@@ -116,11 +116,17 @@
             <opaqueInsets>
                 <Insets />
             </opaqueInsets>
+         <GridPane.margin>
+            <Insets top="10.0" />
+         </GridPane.margin>
         </HBox>
         <Separator prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="6">
             <padding>
-                <Insets bottom="10.0" />
+                <Insets bottom="10.0" top="15.0" />
             </padding>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
         </Separator>
         <AreaChart fx:id="spektr" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" prefHeight="270.0" prefWidth="418.0" style="-fx-background-radius: 50; -fx-background-color: #00ddee;" styleClass="bar-chart" verticalGridLinesVisible="false" verticalZeroLineVisible="false" GridPane.columnIndex="1" GridPane.columnSpan="7" GridPane.rowIndex="7">
             <xAxis>

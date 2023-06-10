@@ -1,0 +1,12 @@
+#playButton {
+    -fx-background-image: url("../icons/playIcon.png")
+}
+#stopButton{
+    -fx-background-image: url("../icons/stopIcon.png")
+}
+#pauseButton{
+    -fx-background-image: url("../icons/pauseIcon.png")
+}
+#refreshButton{
+    -fx-background-image: url("../icons/refreshIcon.png")
+}

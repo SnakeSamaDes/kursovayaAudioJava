@@ -97,7 +97,6 @@ public class MainWindowController implements Initializable {
                 }catch (Exception exception){
                     exception.printStackTrace();
                 }
-
             });
             mediaplayer.setAudioSpectrumListener(new SpektrumListener());
             //lister
