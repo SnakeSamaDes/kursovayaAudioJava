@@ -1,12 +1,36 @@
 #playButton {
     -fx-background-image: url("../icons/playIcon.png")
 }
+#playButton:pressed {
+    -fx-background-image: url("../icons/playIconPressed.png")
+}
+
 #stopButton{
     -fx-background-image: url("../icons/stopIcon.png")
 }
+#stopButton:pressed{
+    -fx-background-image: url("../icons/stopIconPressed.png")
+}
+
 #pauseButton{
     -fx-background-image: url("../icons/pauseIcon.png")
 }
+#pauseButton:pressed{
+    -fx-background-image: url("../icons/pauseIconPressed.png")
+}
+
 #refreshButton{
     -fx-background-image: url("../icons/refreshIcon.png")
+}
+#refreshButton:pressed{
+    -fx-background-image: url("../icons/refreshIconPressed.png")
+}
+
+.slider .track{
+    -fx-background-color:  #00bbee;
+}
+.slider .thumb{
+    -fx-pref-width: 19px;
+    -fx-pref-height: 15px;
+    -fx-background-image: url("../icons/slider  thumb.png");
 }
